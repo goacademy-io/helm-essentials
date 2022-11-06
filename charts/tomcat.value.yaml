@@ -1,0 +1,11 @@
+persistence:
+  enabled: true
+  storageClass: "local-storage"
+  accessModes:
+    - ReadWriteOnce
+  size: 1Gi
+ingress:
+  enabled: true
+  hostname: tomcat.meow.local
+service:
+  type: ClusterIP
