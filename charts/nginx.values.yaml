@@ -3,6 +3,11 @@ service:
 ingress:
   enabled: true
   hostname: dev.goacademy.io
+  ingressClassName: "traefik"
+  tls: true
   annotations:
-     kubernetes.io/ingress.class: traefik
-     cert-manager.io/cluster-issuer: cluster-issuer-name
+    # kubernetes.io/ingress.class: traefik #this cannot be set if ingressClassName is set (above)
+    # cert-manager.io/cluster-issuer: cluster-issuer-name #cluster wide
+     cert-manager.io/issuer: letsencrypt #namespace wide
+     kubernetes.io/tls-acme: "true"
+     traefik.ingress.kubernetes.io/router.tls: "true"

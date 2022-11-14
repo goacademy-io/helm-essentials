@@ -1,3 +1,7 @@
 prometheus:
   enabled: true
 installCRDs: true #installs cluster-issuer
+ingressShim:
+  defaultIssuerName: "letsencrypt"
+  defaultIssuerKind: "Issuer"
+  defaultIssuerGroup: "cert-manager.io"
